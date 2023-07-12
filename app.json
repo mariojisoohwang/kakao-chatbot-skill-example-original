@@ -1,0 +1,7 @@
+{
+  "name": "Kakao chatbot skill example",
+  "description": "카카오 챗봇빌더 스킬서버 예제",
+  "repository": "https://github.com/mariojisoohwang/kakao-chatbot-skill-example",
+  "logo": "http://t1.daumcdn.net/brunch/service/user/65kj/image/ey2rfT_QM61q7lg3mx0h-GhRr5k.png",
+  "keywords": ["kakao", "chatbot", "skill"]
+}
