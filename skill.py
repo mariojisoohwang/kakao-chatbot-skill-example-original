@@ -33,6 +33,10 @@ class ChatbotRequest(BaseModel):
 
 app = FastAPI()
 
+@app.get("/")
+async def home():
+    return "Kakao Chatbot Skill Example"
+
 @app.post("/skill")
 async def skill(req: ChatbotRequest):
 
