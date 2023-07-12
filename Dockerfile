@@ -1,24 +1,12 @@
-FROM idock.daumkakao.io/chappie/python:3.8.12
+FROM python:3.9
 
-ARG WORKERS=4
-ARG THREADS=4
+WORKDIR /app
 
-RUN apt-get update
+COPY requirements.txt .
 
-ENV APP_HOME=/app
-WORKDIR $APP_HOME
-RUN mkdir -p $APP_HOME
+RUN pip install --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt
 
-COPY . $APP_HOME
+COPY . .
 
-
-RUN pip install --upgrade pip
-RUN pip install -r ./requirements.txt
-
-ENV WORKERS_NUM ${WORKERS}
-ENV THREADS_NUM ${THREADS}
-
-EXPOSE 8080
-
-RUN chmod +x docker-entry.sh
-ENTRYPOINT ["./docker-entry.sh"]
+CMD ["uvicorn", "api:app", "--host", "0.0.0.0", "--port", "8080"]

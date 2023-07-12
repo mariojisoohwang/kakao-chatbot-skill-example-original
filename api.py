@@ -1,6 +1,6 @@
 from fastapi import FastAPI
-from pydantic import BaseModel
 import logging
+from dto import ChatbotRequest
 
 logging.basicConfig(
     level=logging.INFO,
@@ -9,26 +9,6 @@ logging.basicConfig(
 )
 
 logger = logging.getLogger('main')
-
-
-class UserProperty(BaseModel):
-    plusfriendUserKey: str
-
-class User(BaseModel):
-    id: str
-    properties: UserProperty
-
-class UserRequest(BaseModel):
-    utterance: str
-    callbackUrl: str
-    user: User
-
-class Intent(BaseModel):
-    name: str
-
-class ChatbotRequest(BaseModel):
-    userRequest: UserRequest
-    intent: Intent
 
 
 app = FastAPI()
@@ -46,7 +26,7 @@ async def skill(req: ChatbotRequest):
         'version': '2.0',
             'template': {
                 'outputs': [
-                    {'simpleText': msg}
+                    { 'simpleText': msg }
                 ]
             }
     }
