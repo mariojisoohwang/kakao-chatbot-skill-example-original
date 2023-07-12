@@ -1,4 +1,4 @@
 # deploy
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/mariojisoohwang/kakao-chatbot-skill-example)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/mariojisoohwang/kakao-chatbot-skill-example)
 
