@@ -1,17 +1,13 @@
 from pydantic import BaseModel
 from typing import Optional
 
-
-class UserProperty(BaseModel):
-    plusfriendUserKey: str
-
 class User(BaseModel):
     id: str
-    properties: UserProperty
+    properties: dict 
 
 class UserRequest(BaseModel):
     utterance: str
-    callbackUrl: Optional[str]
+    callbackUrl: Optional[str] = None
     user: User
 
 class Intent(BaseModel):
@@ -20,4 +16,6 @@ class Intent(BaseModel):
 class ChatbotRequest(BaseModel):
     userRequest: UserRequest
     intent: Intent
+    action: dict
+    contexts: list
 
