@@ -1,3 +1,5 @@
+#-*- coding: utf-8 -*-
+
 from fastapi import FastAPI
 import logging
 from dto import ChatbotRequest
@@ -15,20 +17,23 @@ app = FastAPI()
 
 @app.get("/")
 async def home():
-    return "Kakao Chatbot Skill Example"
+    return "카카오 챗봇빌더 스킬 예제입니다!"
 
 @app.post("/skill")
 async def skill(req: ChatbotRequest):
 
-    msg = 'Hello!'
+    logger.info("user={} intent={} utterance={}".format(
+        req.userRequest.user.id,
+        req.intent.name,
+        req.userRequest.utterance))
 
-    simple_text_output = {
+    output = {
         'version': '2.0',
-            'template': {
-                'outputs': [
-                    { 'simpleText': msg }
-                ]
-            }
+        'template': {
+            'outputs': [
+                { 'simpleText': "안녕하세요! 저는 챗봇입니다."},
+                { 'simpleText': "어떤 이야기를 나눌까요?"}
+            ]
+        }
     }
-
-    return simple_text_output
+    return output
