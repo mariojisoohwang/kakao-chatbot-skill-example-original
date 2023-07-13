@@ -1,4 +1,5 @@
 from pydantic import BaseModel
+from typing import Optional
 
 
 class UserProperty(BaseModel):
@@ -10,7 +11,7 @@ class User(BaseModel):
 
 class UserRequest(BaseModel):
     utterance: str
-    callbackUrl: str
+    callbackUrl: Optional[str]
     user: User
 
 class Intent(BaseModel):
