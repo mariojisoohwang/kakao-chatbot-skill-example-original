@@ -1,5 +1,4 @@
 #-*- coding: utf-8 -*-
-
 from fastapi import FastAPI
 import logging
 from dto import ChatbotRequest
@@ -31,8 +30,8 @@ async def skill(req: ChatbotRequest):
         'version': '2.0',
         'template': {
             'outputs': [
-                { 'simpleText': "안녕하세요! 저는 챗봇입니다."},
-                { 'simpleText': "어떤 이야기를 나눌까요?"}
+                { 'simpleText': { "text": "안녕하세요! 저는 챗봇입니다."} },
+                { 'simpleText': { "text": "어떤 이야기를 나눌까요?"} },
             ]
         }
     }
