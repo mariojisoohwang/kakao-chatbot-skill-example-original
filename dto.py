@@ -17,5 +17,3 @@ class ChatbotRequest(BaseModel):
     userRequest: UserRequest
     intent: Intent
     action: dict
-    contexts: list
-
