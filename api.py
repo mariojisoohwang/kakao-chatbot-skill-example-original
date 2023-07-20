@@ -50,14 +50,14 @@ async def skill(req: ChatbotRequest):
             ],
             "quickReplies": [
                 {
-                    "messageText": "Basic Card",
+                    "messageText": "Basic Card 보여주세요",
                     "action": "message",
-                    "label": "Basic Card 보여주세요."
+                    "label": "Basic"
                 },
                 {
-                    "messageText": "Commerce Card",
+                    "messageText": "Commerce Card 보여주세요",
                     "action": "message",
-                    "label": "Commerce Card 보여주세요."
+                    "label": "Commerce"
                 },
             ]
         }
@@ -77,16 +77,50 @@ async def skill(req: ChatbotRequest):
             'outputs': [
                 {
                     "basicCard": {
-                        "title": "",
-                        "description": "",
+                        "title": "라이언",
+                        "description": "덩치는 크지만 마음은 여린 수사자",
                         "thumbnail": {
-                            "imageUrl": "https://t1.kakaocdn.net/kakaocorp/kakaocorp/admin/editor/21c5aa9f017900001."
+                            "imageUrl": "https://i.namu.wiki/i/Uk3BUJiR4ovxBg-1R4u3-KgBsHixap3I6typn0q5gR-4WETLzOsZygp9zdJaReCG1gV7cGBHoqJkmBp-gtsUtGcF2hIjLNUjymZ54wc13jAFVasUgjszRK3VKHjGuHdZbj524ZxMPmG5d_NFazqf8g.webp"
                         },
                         "buttons": [
                             {
                                 "label": "더 알아보기",
                                 "action": "webLink",
-                                "webLinkUrl": "https://www.kakaocorp.com/page/detail/9348"
+                                "webLinkUrl": "https://namu.wiki/w/%EB%9D%BC%EC%9D%B4%EC%96%B8(%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%94%84%EB%A0%8C%EC%A6%88)"
+                            }
+                        ]
+                    }
+                },
+            ]
+        }
+    }
+    return output
+
+
+@app.post("/skill/commerce-card")
+async def skill(req: ChatbotRequest):
+    logger.info("user={} intent={} utterance={}".format(
+        req.userRequest.user.id,
+        req.intent.name,
+        req.userRequest.utterance))
+
+    output = {
+        'version': '2.0',
+        'template': {
+            'outputs': [
+                {
+                    "commerceCard": {
+                        "title": "",
+                        "description": "두 뺨이 발그레😊 매일쓰는 칫솔을 깨끗하게!",
+                        "price": 30000,
+                        "discountRate": 20,
+                        "discountedPrice": 23000,
+                        "currency": "won",
+                        "buttons": [
+                            {
+                                "label": "구매하기",
+                                "action": "webLink",
+                                "webLinkUrl": "https://store.kakaofriends.com/products/9959"
                             }
                         ]
                     }
