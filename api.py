@@ -80,7 +80,7 @@ async def skill(req: ChatbotRequest):
                         "title": "라이언",
                         "description": "덩치는 크지만 마음은 여린 수사자",
                         "thumbnail": {
-                            "imageUrl": "https://i.namu.wiki/i/Uk3BUJiR4ovxBg-1R4u3-KgBsHixap3I6typn0q5gR-4WETLzOsZygp9zdJaReCG1gV7cGBHoqJkmBp-gtsUtGcF2hIjLNUjymZ54wc13jAFVasUgjszRK3VKHjGuHdZbj524ZxMPmG5d_NFazqf8g.webp"
+                            "imageUrl": "https://t1.kakaocdn.net/friends/new_store/prod/character/character_20230609082239_4d31bb9f1570488fa272c6c3f62ead6c.jpg"
                         },
                         "buttons": [
                             {
@@ -112,10 +112,18 @@ async def skill(req: ChatbotRequest):
                     "commerceCard": {
                         "title": "",
                         "description": "두 뺨이 발그레😊 매일쓰는 칫솔을 깨끗하게!",
-                        "price": 30000,
+                        "price": 25000,
                         "discountRate": 20,
-                        "discountedPrice": 23000,
+                        "discountedPrice": 20000,
                         "currency": "won",
+                        "thumbnails": [
+                            {
+                                "imageUrl": "https://t1.kakaocdn.net/friends/prod/product/20230620141231526_8809922502300_AW_00.jpg",
+                                "link": {
+                                    "web": "https://store.kakaofriends.com/products/9959"
+                                }
+                            }
+                        ],
                         "buttons": [
                             {
                                 "label": "구매하기",
